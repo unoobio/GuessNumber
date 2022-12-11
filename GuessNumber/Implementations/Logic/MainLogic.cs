@@ -31,10 +31,11 @@ namespace GuessNumber.Implementations.Logic
 
             compareResult = null;
 
-            _attempCount++;
-            if (_attempCount > _settingsProvider.GetCashedModel().NumberOfAttemps)
+            if (!this.HaveAttemps())
                 return false;
 
+            _attempCount++;
+            
             compareResult = _numberComparer.Compare(_concievedNumber.Value, number);
 
             return true;
